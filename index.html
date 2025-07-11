@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Centro Holístico Prana Bhakti</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+ <header>
+  <div class="logo">Prana Bhakti</div>
+
+  <form class="search-form" role="search" aria-label="Buscar servicios">
+    <input type="search" placeholder="Buscar..." aria-label="Buscar" />
+    <button type="submit" aria-label="Buscar">🔍</button>
+  </form>
+
+  <nav class="navbar" aria-label="Menú principal">
+    <ul>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="hero">
+    <div class="hero-overlay">
+      <h1>Bienvenido a Prana Bhakti</h1>
+      <p>Tu espacio para sanación y crecimiento personal</p>
+    </div>
+  </section>
+
+  <section class="carousel" aria-label="Carrusel de imágenes de servicios">
+    <div class="carousel-track">
+      <img src="https://picsum.photos/id/1018/800/400" alt="Constelaciones familiares" />
+      <img src="https://picsum.photos/id/1015/800/400" alt="Limpieza energética" />
+      <img src="https://picsum.photos/id/1019/800/400" alt="Reiki" />
+    </div>
+  </section>
+
+  <main>
+    <section  id="services" class="services" aria-label="Servicios ofrecidos">
+      <article class="card">
+        <h3>Constelaciones Familiares</h3>
+        <p>Sesiones para resolver bloqueos familiares y mejorar la armonía.</p>
+        <button class="btn-interest" aria-label="Me interesa Constelaciones Familiares" data-service="Constelaciones Familiares">Me interesa</button>
+      </article>
+
+      <article class="card">
+        <h3>Limpieza Energética</h3>
+        <p>Elimina energías negativas y renueva tu bienestar.</p>
+        <button class="btn-interest" aria-label="Me interesa Limpieza Energética" data-service="Limpieza Energética">Me interesa</button>
+      </article>
+
+      <article class="card">
+        <h3>Biodescodificación</h3>
+        <p>Comprende y sana las causas emocionales de tus enfermedades.</p>
+        <button class="btn-interest" aria-label="Me interesa Biodescodificación" data-service="Biodescodificación">Me interesa</button>
+      </article>
+
+      <article class="card">
+        <h3>Reiki</h3>
+        <p>Terapia energética para equilibrar tu cuerpo y mente.</p>
+        <button class="btn-interest" aria-label="Me interesa Reiki" data-service="Reiki">Me interesa</button>
+      </article>
+
+      <article class="card">
+        <h3>Registros Akáshicos</h3>
+        <p>Accede a información profunda de tu alma y propósito de vida.</p>
+        <button class="btn-interest" aria-label="Me interesa Registros Akáshicos" data-service="Registros Akáshicos">Me interesa</button>
+      </article>
+    </section>
+
+    <section  id="about" class="about" aria-label="Sección sobre mí">
+      <h2>Sobre mí</h2>
+      <p>Soy especialista en terapias holísticas con más de 10 años de experiencia, dedicada a ayudarte en tu camino de sanación y crecimiento.</p>
+    </section>
+
+    <section id="contact" class="contact" aria-label="Formulario de contacto">
+      <h2>Contacto</h2>
+      <form id="contact-form" novalidate>
+        <label for="name">Nombre</label>
+        <input id="name" name="name" type="text" required minlength="2" />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" required minlength="10"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-icons" aria-label="Redes sociales">
+      <a href="https://www.facebook.com/pranabhakti" target="_blank" rel="noopener" aria-label="Facebook Prana Bhakti">📘</a>
+      <a href="https://www.instagram.com/pranabhakti" target="_blank" rel="noopener" aria-label="Instagram Prana Bhakti">📸</a>
+    </div>
+    <p>© 2025 Prana Bhakti - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
