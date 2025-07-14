@@ -2,108 +2,132 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Centro Holístico Prana Bhakti</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prana Bhakti - Espiritualidad</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-
- <header>
-  <div class="logo">Prana Bhakti</div>
-
-  <form class="search-form" role="search" aria-label="Buscar servicios">
-    <input type="search" placeholder="Buscar..." aria-label="Buscar" />
-    <button type="submit" aria-label="Buscar">🔍</button>
-  </form>
-
-  <nav class="navbar" aria-label="Menú principal">
-    <ul>
-      <li><a href="#services">Servicios</a></li>
-      <li><a href="#about">Sobre mí</a></li>
-      <li><a href="#contact">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
-  <section class="hero">
-    <div class="hero-overlay">
-      <h1>Bienvenido a Prana Bhakti</h1>
-      <p>Tu espacio para sanación y crecimiento personal</p>
-    </div>
-  </section>
-
-  <section class="carousel" aria-label="Carrusel de imágenes de servicios">
-    <div class="carousel-track">
-      <img src="https://picsum.photos/id/1018/800/400" alt="Constelaciones familiares" />
-      <img src="https://picsum.photos/id/1015/800/400" alt="Limpieza energética" />
-      <img src="https://picsum.photos/id/1019/800/400" alt="Reiki" />
-    </div>
-  </section>
+  <header>
+    <div class="logo">Prana Bhakti</div>
+   <div class="search-container">
+  <input type="text" placeholder="Buscar...">
+  <button><i class="fas fa-search"></i></button>
+</div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#akashicos">Registros</a></li>
+        <li><a href="#limpieza">Limpieza</a></li>
+        <li><a href="#carta">Carta Natal</a></li>
+        <li><a href="#reiki">Reiki</a></li>
+        <li><a href="#nosotras">Nosotras</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <main>
-    <section  id="services" class="services" aria-label="Servicios ofrecidos">
-      <article class="card">
-        <h3>Constelaciones Familiares</h3>
-        <p>Sesiones para resolver bloqueos familiares y mejorar la armonía.</p>
-        <button class="btn-interest" aria-label="Me interesa Constelaciones Familiares" data-service="Constelaciones Familiares">Me interesa</button>
-      </article>
+   <section class="carousel">
+  <div class="slides">
+    <div class="slide active">
+      <img src="/pictures/sanacion-holistica1.avif" alt="Sanación holística">
+      <div class="caption">Sanación Holística</div>
+    </div>
+    <div class="slide">
+      <img src="/pictures/armonizacion-energetica.avif" alt="Armonización energética">
+      <div class="caption">Armonización Energética</div>
+    </div>
+    <div class="slide">
+      <img src="/pictures/coneccion espiritual.jpg" alt="Conexión espiritual">
+      <div class="caption">Conexión Espiritual</div>
+    </div>
+  </div>
 
-      <article class="card">
-        <h3>Limpieza Energética</h3>
-        <p>Elimina energías negativas y renueva tu bienestar.</p>
-        <button class="btn-interest" aria-label="Me interesa Limpieza Energética" data-service="Limpieza Energética">Me interesa</button>
-      </article>
+  <div class="carousel-controls">
+    <span class="prev">❮</span>
+    <span class="next">❯</span>
+  </div>
 
-      <article class="card">
-        <h3>Biodescodificación</h3>
-        <p>Comprende y sana las causas emocionales de tus enfermedades.</p>
-        <button class="btn-interest" aria-label="Me interesa Biodescodificación" data-service="Biodescodificación">Me interesa</button>
-      </article>
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
 
-      <article class="card">
-        <h3>Reiki</h3>
-        <p>Terapia energética para equilibrar tu cuerpo y mente.</p>
-        <button class="btn-interest" aria-label="Me interesa Reiki" data-service="Reiki">Me interesa</button>
-      </article>
-
-      <article class="card">
-        <h3>Registros Akáshicos</h3>
-        <p>Accede a información profunda de tu alma y propósito de vida.</p>
-        <button class="btn-interest" aria-label="Me interesa Registros Akáshicos" data-service="Registros Akáshicos">Me interesa</button>
-      </article>
+    <section id="akashicos" data-reveal>
+      <h2>Registros Akáshicos</h2>
+      <p>
+        Los registros Akáshicos son el espejo que reflejan nuestra evolución espiritual y nos muestra el camino hacia la sanación y el crecimiento. Es un tipo de herramientas con intención de sanar traumas, solucionar conflictos pendientes o comprender su vida actual, para poder seguir adelante con más sabiduría.
+      </p>
+      <button class="btn-interest" data-service="Registros Akáshicos">Me interesa</button>
     </section>
 
-    <section  id="about" class="about" aria-label="Sección sobre mí">
-      <h2>Sobre mí</h2>
-      <p>Soy especialista en terapias holísticas con más de 10 años de experiencia, dedicada a ayudarte en tu camino de sanación y crecimiento.</p>
+    <section id="limpieza" data-reveal>
+      <h2>Limpieza y armonización energética</h2>
+      <p>
+        Consiste en armonizar y limpiar el aura, los centros energéticos, armonizando los cuerpos con distintas herramientas, utilizando sahumo, vibraciones, cristales y también con asistencia de seres de luz.
+      </p>
+      <button class="btn-interest" data-service="Limpieza energética">Me interesa</button>
     </section>
 
-    <section id="contact" class="contact" aria-label="Formulario de contacto">
+    <section id="carta" data-reveal>
+      <h2>Carta Natal</h2>
+      <p>
+        Es un mapa en donde están plasmadas todas nuestras energías. En ella se ve el lugar exacto en el que estaban los planetas el día y la hora del nacimiento. Es una herramienta de auto conocimiento, nos permite entendernos, conocer nuestra personalidad, forma de sentir, de expresarnos y accionar, también podemos conocer desafíos, talentos, y mucho más. Muestra la energía disponible, por lo que podemos identificarla desde la consciencia o también proyectarla en los vínculos.
+      </p>
+      <p>
+        Cada carta es única y diferente al resto, aunque esté compuesta por los mismos planetas, casas y signos. El conocimiento de una carta natal es infinito. Unx siempre puede ir descubriendo cosas nuevas a medida que va creciendo o según diferentes procesos de vida.
+      </p>
+      <button class="btn-interest" data-service="Carta Natal">Me interesa</button>
+    </section>
+
+    <section id="reiki" data-reveal>
+      <h2>Conciencia del Alma (Reiki)</h2>
+      <p>
+        Sesión de Reiki de 40 minutos cada sesión, dos veces por semana. Valor: $15.000 c/u.
+      </p>
+      <ul>
+        <li>Reiki Usui</li>
+        <li>Reiki Karuma</li>
+        <li>Reiki Kuan Yin (amor)</li>
+        <li>Reiki Mari El (Virgen María)</li>
+        <li>Ama-Deus (Sanación Guaraní) - 1 hora $25.000</li>
+      </ul>
+      <button class="btn-interest" data-service="Reiki">Me interesa</button>
+    </section>
+
+    <section id="nosotras" data-reveal>
+      <h2>Sobre Prana Bhakti</h2>
+      <p>
+        Somos tres mujeres profesionales con distintos espacios en la Espiritualidad: espiritual, sanación y astrología.
+      </p>
+      <p>
+        Queremos brindarte un cálido espacio para que puedas conocer tu camino hacia la sanación respetuosa y nos dejes acompañarte.
+      </p>
+      <p>
+        Para solicitar cualquier especialidad con nosotras, nos manejamos con agenda, con turno previo.
+      </p>
+    </section>
+
+    <section id="contact" data-reveal>
       <h2>Contacto</h2>
-      <form id="contact-form" novalidate>
-        <label for="name">Nombre</label>
-        <input id="name" name="name" type="text" required minlength="2" />
-
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required />
-
-        <label for="message">Mensaje</label>
-        <textarea id="message" name="message" required minlength="10"></textarea>
-
+      <form id="contact-form" action="https://formsubmit.co/Pranabhaktioficial@gmail.com" method="POST"  >
+        <input type="text" name="name" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu email" required />
+        <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
         <button type="submit">Enviar</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <div class="social-icons" aria-label="Redes sociales">
-      <a href="https://www.facebook.com/pranabhakti" target="_blank" rel="noopener" aria-label="Facebook Prana Bhakti">📘</a>
-      <a href="https://www.instagram.com/pranabhakti" target="_blank" rel="noopener" aria-label="Instagram Prana Bhakti">📸</a>
+    <p>&copy; 2025 Prana Bhakti - Espiritualidad</p>
+    <div class="social">
+      <a href="https://www.instagram.com/p/DK_JgDnNjhg/?igsh=MzNtM2x3ejJlNGpq" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
     </div>
-    <p>© 2025 Prana Bhakti - Todos los derechos reservados</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
