@@ -1,133 +1,307 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prana Bhakti - Espiritualidad</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Centro holístico Prana Bhakti. Carta natal, reiki, registros akáshicos, limpieza energética, constelaciones familiares y más. Acompañamiento espiritual consciente.">
+<meta name="keywords" content="prana bhakti, terapias holísticas, carta natal, reiki, registros akáshicos, limpieza energética, constelaciones familiares, espiritualidad, biodescodificación, péndulo, conciencia del alma">
+<meta name="author" content="Prana Bhakti">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Prana Bhakti | Terapias Holísticas y Espirituales">
+<meta property="og:description" content="Conectá con tu ser. Carta natal, reiki, registros akáshicos y más. Profesionales con consciencia y amor.">
+<meta property="og:image" content=""> 
+<meta property="og:url" content="">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Prana Bhakti">
+<title>Prana Bhakti</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+   html {
+      scroll-behavior: smooth;
+  }
+   .invalid {
+      border-color: red !important;
+  }
+   .valid {
+      border-color: green !important;
+  }
+</style>
 </head>
-<body>
-  <header>
-    <div class="logo">Prana Bhakti</div>
-   <div class="search-container">
-  <input type="text" placeholder="Buscar...">
-  <button><i class="fas fa-search"></i></button>
+<body class="bg-pink-50 text-gray-800 font-medium leading-relaxed">
+
+<header class="bg-white shadow-md sticky top-0 z-50">
+<div class="container mx-auto flex justify-between items-center p-4">
+ <h1 class="text-2xl font-bold text-pink-600">Prana Bhakti</h1>
+<nav class="bg-white shadow-md fixed w-full z-50 top-0">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16">
+      <div class="flex items-center">
+        <span class="text-pink-600 font-bold text-xl">Prana<br>Bhakti</span>
+      </div>
+
+      <!-- Botón Hamburguesa -->
+      <div class="flex items-center sm:hidden">
+        <button onclick="toggleMenu()" class="text-pink-600 focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Enlaces en pantalla grande -->
+      <div class="hidden sm:flex sm:items-center space-x-6 text-pink-700 font-medium">
+        <a href="#inicio" class="hover:text-pink-500">Inicio</a>
+        
+        <!-- Dropdown Servicios -->
+        <div class="relative group">
+          <button class="hover:text-pink-500">Servicios</button>
+          <div
+            class="absolute hidden group-hover:block bg-white border rounded shadow-md mt-2 z-50 w-40">
+            <a href="#carta-natal" class="block px-4 py-2 hover:bg-pink-100">Carta Natal</a>
+            <a href="#reiki" class="block px-4 py-2 hover:bg-pink-100">Reiki</a>
+            <a href="#akashicos" class="block px-4 py-2 hover:bg-pink-100">Registros Akáshicos</a>
+            <a href="#constelaciones" class="block px-4 py-2 hover:bg-pink-100">Constelaciones</a>
+            <a href="#biodesco" class="block px-4 py-2 hover:bg-pink-100">Biodescodificación</a>
+          </div>
+        </div>
+
+        <a href="#equipo" class="hover:text-pink-500">Nuestro equipo</a>
+        <a href="#contacto" class="hover:text-pink-500">Contacto</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú Mobile -->
+  <div id="mobileMenu" class="sm:hidden hidden px-4 pb-4 text-pink-700 font-medium">
+    <a href="#inicio" class="block py-2">Inicio</a>
+
+    <!-- Submenú desplegable en mobile -->
+    <div class="border-t border-gray-200 pt-2">
+      <button onclick="toggleSubmenu()" class="w-full text-left py-2">
+        Servicios
+        <span id="arrow" class="float-right transform transition-transform">▼</span>
+      </button>
+      <div id="submenu" class="hidden pl-4">
+        <a href="#carta-natal" class="block py-1">Carta Natal</a>
+        <a href="#reiki" class="block py-1">Reiki</a>
+        <a href="#akashicos" class="block py-1">Registros Akáshicos</a>
+        <a href="#constelaciones" class="block py-1">Constelaciones</a>
+        <a href="#biodesco" class="block py-1">Biodescodificación</a>
+      </div>
+    </div>
+
+    <a href="#equipo" class="block py-2">Nuestro equipo</a>
+    <a href="#contacto" class="block py-2">Contacto</a>
+  </div>
+</nav>
 </div>
-    <nav class="navbar">
-      <ul>
-        <li><a href="#akashicos">Registros</a></li>
-        <li><a href="#limpieza">Limpieza</a></li>
-        <li><a href="#carta">Carta Natal</a></li>
-        <li><a href="#reiki">Reiki</a></li>
-        <li><a href="#nosotras">Nosotras</a></li>
-        <li><a href="#contact">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-   <section class="carousel">
-  <div class="slides">
-    <div class="slide active">
-      <img src="/pictures/sanacion-holistica1.avif" alt="Sanación holística">
-      <div class="caption">Sanación Holística</div>
+</header>
+<section id="servicios" class="py-12 bg-white">
+  <div class="container mx-auto">
+  <h2 class="text-3xl font-bold text-center mb-10 text-pink-600">Nuestros Servicios</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+    <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+    <div class="flex justify-between items-center">
+    <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+  <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+    <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M19 9l-7 7-7-7" />
+   </svg>
+  </button>
+</div>
+  <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+    <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
     </div>
-    <div class="slide">
-      <img src="/pictures/armonizacion-energetica.avif" alt="Armonización energética">
-      <div class="caption">Armonización Energética</div>
+       <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+            <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+              <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+          <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
+        </div>
+        <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+            <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+              <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+          <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
+        </div>
+        <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+            <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+              <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+          <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
+        </div>
+        <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+            <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+              <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+          <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
+        </div>
+        <div id="servicio-carta" class="bg-pink-100 rounded-xl p-6 shadow hover:shadow-xl transition">
+          <div class="flex justify-between items-center">
+            <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
+            <button onclick="toggleDescripcion(this)" class="text-pink-600 hover:text-pink-800">
+              <svg class="w-6 h-6 transition-transform transform rotate-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+          </div>
+          <p class="mt-4 hidden text-sm text-gray-700">Análisis completo de tu carta natal, autoconocimiento y propósito espiritual.</p>
+          <a href="https://wa.me/543134075054" target="_blank" class="mt-4 block text-center bg-pink-500 text-white py-2 rounded hover:bg-pink-600">Consultar</a>
+        </div>
+       
+      </div>
     </div>
-    <div class="slide">
-      <img src="/pictures/coneccion espiritual.jpg" alt="Conexión espiritual">
-      <div class="caption">Conexión Espiritual</div>
+  </section>
+
+  <section id="equipo" class="py-16 bg-pink-50">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold text-center text-pink-600 mb-10">Nuestro Equipo</h2>
+
+      <div class="relative overflow-hidden">
+        <div id="slider" class="flex transition-transform duration-500 ease-in-out w-full">
+          <div class="min-w-full px-4">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+              <h3 class="text-xl font-semibold text-pink-700">María</h3>
+              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
+            </div>
+          </div>
+           <div class="min-w-full px-4">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+              <h3 class="text-xl font-semibold text-pink-700">María</h3>
+              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
+            </div>
+          </div>
+           <div class="min-w-full px-4">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
+              <h3 class="text-xl font-semibold text-pink-700">María</h3>
+              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <button onclick="moverSlide(-1)" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-pink-300 hover:bg-pink-500 text-white px-3 py-1 rounded-l">←</button>
+        <button onclick="moverSlide(1)" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-pink-300 hover:bg-pink-500 text-white px-3 py-1 rounded-r">→</button>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="carousel-controls">
-    <span class="prev">❮</span>
-    <span class="next">❯</span>
-  </div>
-
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-</section>
-
-    <section id="akashicos" data-reveal>
-      <h2>Registros Akáshicos</h2>
-      <p>
-        Los registros Akáshicos son el espejo que reflejan nuestra evolución espiritual y nos muestra el camino hacia la sanación y el crecimiento. Es un tipo de herramientas con intención de sanar traumas, solucionar conflictos pendientes o comprender su vida actual, para poder seguir adelante con más sabiduría.
-      </p>
-      <button class="btn-interest" data-service="Registros Akáshicos">Me interesa</button>
-    </section>
-
-    <section id="limpieza" data-reveal>
-      <h2>Limpieza y armonización energética</h2>
-      <p>
-        Consiste en armonizar y limpiar el aura, los centros energéticos, armonizando los cuerpos con distintas herramientas, utilizando sahumo, vibraciones, cristales y también con asistencia de seres de luz.
-      </p>
-      <button class="btn-interest" data-service="Limpieza energética">Me interesa</button>
-    </section>
-
-    <section id="carta" data-reveal>
-      <h2>Carta Natal</h2>
-      <p>
-        Es un mapa en donde están plasmadas todas nuestras energías. En ella se ve el lugar exacto en el que estaban los planetas el día y la hora del nacimiento. Es una herramienta de auto conocimiento, nos permite entendernos, conocer nuestra personalidad, forma de sentir, de expresarnos y accionar, también podemos conocer desafíos, talentos, y mucho más. Muestra la energía disponible, por lo que podemos identificarla desde la consciencia o también proyectarla en los vínculos.
-      </p>
-      <p>
-        Cada carta es única y diferente al resto, aunque esté compuesta por los mismos planetas, casas y signos. El conocimiento de una carta natal es infinito. Unx siempre puede ir descubriendo cosas nuevas a medida que va creciendo o según diferentes procesos de vida.
-      </p>
-      <button class="btn-interest" data-service="Carta Natal">Me interesa</button>
-    </section>
-
-    <section id="reiki" data-reveal>
-      <h2>Conciencia del Alma (Reiki)</h2>
-      <p>
-        Sesión de Reiki de 40 minutos cada sesión, dos veces por semana. Valor: $15.000 c/u.
-      </p>
-      <ul>
-        <li>Reiki Usui</li>
-        <li>Reiki Karuma</li>
-        <li>Reiki Kuan Yin (amor)</li>
-        <li>Reiki Mari El (Virgen María)</li>
-        <li>Ama-Deus (Sanación Guaraní) - 1 hora $25.000</li>
-      </ul>
-      <button class="btn-interest" data-service="Reiki">Me interesa</button>
-    </section>
-
-    <section id="nosotras" data-reveal>
-      <h2>Sobre Prana Bhakti</h2>
-      <p>
-        Somos tres mujeres profesionales con distintos espacios en la Espiritualidad: espiritual, sanación y astrología.
-      </p>
-      <p>
-        Queremos brindarte un cálido espacio para que puedas conocer tu camino hacia la sanación respetuosa y nos dejes acompañarte.
-      </p>
-      <p>
-        Para solicitar cualquier especialidad con nosotras, nos manejamos con agenda, con turno previo.
-      </p>
-    </section>
-
-    <section id="contact" data-reveal>
-      <h2>Contacto</h2>
-      <form id="contact-form" action="https://formsubmit.co/Pranabhaktioficial@gmail.com" method="POST"  >
-        <input type="text" name="name" placeholder="Tu nombre" required />
-        <input type="email" name="email" placeholder="Tu email" required />
-        <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
-        <button type="submit">Enviar</button>
+  <section id="contacto" class="py-12 bg-white">
+    <div class="container mx-auto max-w-xl">
+      <h2 class="text-3xl font-bold text-center mb-6 text-pink-600">Contacto</h2>
+      <form id="formulario" class="space-y-4">
+        <input type="text" name="nombre" placeholder="Nombre completo" class="w-full p-3 rounded border" required />
+        <input type="email" name="email" placeholder="Correo electrónico" class="w-full p-3 rounded border" required />
+        <input type="tel" name="telefono" placeholder="Teléfono" class="w-full p-3 rounded border" required />
+        <textarea name="mensaje" placeholder="Mensaje" rows="4" class="w-full p-3 rounded border" required></textarea>
+        <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded hover:bg-pink-600">Enviar mensaje</button>
       </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Prana Bhakti - Espiritualidad</p>
-    <div class="social">
-      <a href="https://www.instagram.com/p/DK_JgDnNjhg/?igsh=MzNtM2x3ejJlNGpq" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a>
     </div>
+  </section>
+
+  <footer class="bg-pink-200 text-center py-6 mt-12">
+    <p class="text-gray-800">© 2025 Prana Bhakti - Todos los derechos reservados</p>
+    <p class="text-gray-700">Contacto: <a href="https://wa.me/543134075054" class="text-pink-600 hover:underline">11 3407-5054</a></p>
   </footer>
+
+  <script>
+    // Desplegar servicios
+    function toggleDescripcion(btn) {
+      const desc = btn.parentElement.nextElementSibling;
+      const svg = btn.querySelector('svg');
+      desc.classList.toggle('hidden');
+      svg.classList.toggle('rotate-180');
+    }
+
+    // Validación form
+    document.getElementById('formulario').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = e.target;
+      let valid = true;
+
+      for (let field of form.elements) {
+        if (!field.name) continue;
+        field.classList.remove('invalid', 'valid');
+
+        if (field.value.trim() === '') {
+          valid = false;
+          field.classList.add('invalid');
+          continue;
+        }
+
+        if (field.name === 'email' && !/^\S+@\S+\.\S+$/.test(field.value)) {
+          valid = false;
+          field.classList.add('invalid');
+          continue;
+        }
+
+        if (field.name === 'telefono' && !/^\d{7,15}$/.test(field.value)) {
+          valid = false;
+          field.classList.add('invalid');
+          continue;
+        }
+
+        field.classList.add('valid');
+      }
+
+      if (valid) {
+        alert('Formulario enviado con éxito.');
+        form.reset();
+      } else {
+        alert('Por favor completá correctamente todos los campos.');
+      }
+    });
+
+    // Slider 
+    let index = 0;
+    function moverSlide(dir) {
+      const slider = document.getElementById('slider');
+      const total = slider.children.length;
+      index = Math.max(0, Math.min(index + dir, total - 1));
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    //menu responsive
+    function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('hidden');
+  }
+
+  function toggleSubmenu() {
+    const submenu = document.getElementById('submenu');
+    const arrow = document.getElementById('arrow');
+    submenu.classList.toggle('hidden');
+    arrow.classList.toggle('rotate-180');
+  }
+  </script>
 </body>
 </html>
