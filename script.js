@@ -93,6 +93,23 @@ if (imageCarousel) {
     setInterval(nextSlide, 5000); 
 }
 
+// --- Lógica para la Esfera 3D ---
+const sphere = document.querySelector('.sphere');
+if (sphere) {
+    const panels = 6; 
+    const radius = 140; 
+    const imageUrl = 'pictures/logo-removebg-preview.png'; 
+
+    for (let i = 0; i < panels; i++) {
+        const panel = document.createElement('div');
+        panel.classList.add('sphere-panel');
+        const angle = (360 / panels) * i;
+        panel.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
+        panel.style.backgroundImage = `url('${imageUrl}')`;
+        sphere.appendChild(panel);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('input[type="search"]');
     const serviceCards = document.querySelectorAll('#servicios .grid > div');

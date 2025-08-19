@@ -29,6 +29,28 @@
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
    }
+
+  
+   .sphere {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: rotate-sphere 25s infinite linear;
+   }
+   .sphere-panel {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      backface-visibility: hidden;
+      border-radius: 12px; 
+   }
+   @keyframes rotate-sphere {
+      from { transform: rotateY(0deg) rotateX(5deg); }
+      to { transform: rotateY(360deg) rotateX(5deg); }
+   }
 </style>
 </head>
 <body class="bg-rose-50 text-gray-800 font-medium leading-relaxed">
@@ -37,7 +59,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="#inicio" class="flex items-center space-x-3">
-        <img src="pictures/logo-removebg-preview.png" alt="Logo Prana Bhakti" class="h-14 w-14 rounded-full object-cover mr-2 bg-pink-200 p-1"/>
+        <img src="pictures/logo-removebg-preview.png" alt="Logo Prana Bhakti" class="h-14 w-14 rounded-full object-cover mr-2 bg-rose-50 p-1"/>
         <div>
           <span class="text-pink-600 font-bold text-3xl block">Prana Bhakti</span>
           <p class="text-xs text-pink-600 italic">
@@ -121,6 +143,19 @@
         </p>
     </div>
 </div>
+
+<!-- SLIDER ESFERA -->
+<section id="sphere-slider" class="pt-12 pb-20 bg-rose-100 overflow-hidden relative">
+  <div class="container mx-auto text-center mb-8">
+    <h2 class="text-3xl font-bold text-pink-500">Universo Prana Bhakti</h2>
+    <p class="mt-4 text-lg text-gray-700">Explora nuestra energía en movimiento.</p>
+  </div>
+  <!-- Contenedor para la esfera 3D. Puedes ajustar width, height y perspective. -->
+  <div class="scene" style="width: 300px; height: 300px; margin: 40px auto; perspective: 1000px;">
+    <div class="sphere">
+    </div>
+  </div>
+</section>
 
 <section id="servicios" class="py-12 bg-white">
   <div class="container mx-auto px-4">
