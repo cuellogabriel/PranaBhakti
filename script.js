@@ -1,4 +1,3 @@
-// Mobile Menu Toggle
 const mobileMenuButton = document.getElementById('mobileMenuButton');
 const mobileMenu = document.getElementById('mobileMenu');
 const submenuButton = document.getElementById('submenuButton');
@@ -19,7 +18,7 @@ if (submenuButton && submenu && arrow) {
     });
 }
 
-// Service Modal Logic
+
 const serviceModal = document.getElementById('serviceModal');
 const modalContent = serviceModal ? serviceModal.querySelector('.bg-white.rounded-2xl') : null; // Select the inner content div
 const modalTitle = document.getElementById('modalTitle');
@@ -49,7 +48,6 @@ if (serviceModal && modalContent && modalTitle && modalDescription && modalClose
         });
     });
 
-    // Function to hide the modal
     const hideModal = () => {
         serviceModal.classList.remove('opacity-100');
         serviceModal.classList.add('opacity-0');
@@ -95,7 +93,6 @@ if (imageCarousel) {
     setInterval(nextSlide, 5000); 
 }
 
-//Search Functionality
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('input[type="search"]');
     const serviceCards = document.querySelectorAll('#servicios .grid > div');
@@ -108,10 +105,64 @@ document.addEventListener('DOMContentLoaded', function() {
             const description = card.querySelector('p').textContent.toLowerCase();
 
             if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                card.style.display = ''; // Show the card
+                card.style.display = ''; 
             } else {
-                card.style.display = 'none'; // Hide the card
+                card.style.display = 'none'; 
             }
         });
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const copyrightLink = document.getElementById('copyrightLink');
+    const copyrightModal = document.getElementById('copyrightModal');
+
+    if (copyrightLink && copyrightModal) {
+        copyrightLink.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            copyrightModal.classList.remove('hidden');
+            copyrightModal.classList.add('flex');
+        });
+    }
+});
+
+function closeCopyrightModal() {
+    const copyrightModal = document.getElementById('copyrightModal');
+    if (copyrightModal) {
+        copyrightModal.classList.remove('flex');
+        copyrightModal.classList.add('hidden');
+    }
+}
+
+window.addEventListener('click', function(event) {
+    if (event.target.id === 'copyrightModal') {
+        closeCopyrightModal();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const privacyPolicyLink = document.getElementById('privacyPolicyLink');
+    const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+
+    if (privacyPolicyLink && privacyPolicyModal) {
+        privacyPolicyLink.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            privacyPolicyModal.classList.remove('hidden');
+            privacyPolicyModal.classList.add('flex');
+        });
+    }
+});
+
+function closePrivacyPolicyModal() {
+    const privacyPolicyModal = document.getElementById('privacyPolicyModal');
+    if (privacyPolicyModal) {
+        privacyPolicyModal.classList.remove('flex');
+        privacyPolicyModal.classList.add('hidden');
+    }
+}
+
+window.addEventListener('click', function(event) {
+    if (event.target.id === 'privacyPolicyModal') {
+        closePrivacyPolicyModal();
+    }
 });
