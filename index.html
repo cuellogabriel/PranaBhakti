@@ -9,8 +9,8 @@
 <meta name="robots" content="index, follow">
 <meta property="og:title" content="Prana Bhakti | Terapias Holísticas y Acompañamiento Espiritual">
 <meta property="og:description" content="Conectá con tu ser. Carta natal, reiki, registros akáshicos y más. Profesionales con consciencia y amor.">
-<meta property="og:image" content=""> <!-- TODO: Agrega la URL a una imagen representativa para compartir en redes sociales -->
-<meta property="og:url" content=""> <!-- TODO: Agrega la URL final de tu sitio web -->
+<meta property="og:image" content="img/og-image.jpg"> <!-- Asegúrate que esta imagen exista en la ruta img/og-image.jpg -->
+<meta property="og:url" content="https://www.pranabhakti.com"> <!-- Reemplaza esto con tu dominio real cuando lo tengas -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Prana Bhakti">
 <title>Prana Bhakti</title>
@@ -37,25 +37,18 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="#inicio" class="flex items-center space-x-3">
-        <!-- Reemplaza esta URL de placehold.co con la ruta a tu logo -->
         <img src="https://placehold.co/60x60/E91E63/FFFFFF?text=PB" alt="Logo Prana Bhakti" class="h-14 w-14 rounded-full object-cover">
         <span class="text-pink-600 font-bold text-3xl">Prana Bhakti</span>
       </a>
-
-      <!-- Botón Hamburguesa -->
       <div class="flex items-center sm:hidden">
-        <button onclick="toggleMenu()" class="text-pink-600 focus:outline-none">
+        <button id="mobileMenuButton" aria-controls="mobileMenu" aria-expanded="false" class="text-pink-600 focus:outline-none">
           <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
-
-      <!-- Enlaces en pantalla grande -->
       <div class="hidden sm:flex sm:items-center space-x-6 text-pink-700 font-medium">
         <a href="#inicio" class="hover:text-pink-500">Inicio</a>
-        
-        <!-- Dropdown Servicios -->
         <div class="relative group">
           <a href="#servicios" class="hover:text-pink-500 cursor-pointer">Servicios</a>
           <div class="absolute hidden group-hover:block bg-white border rounded-lg shadow-md mt-2 z-50 w-56">
@@ -65,8 +58,10 @@
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Carta Natal</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Reiki Usui</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Reiki Karuna</a>
+            <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Reiki Ama-Deus</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Reiki Angélico</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Registros Akáshicos</a>
+            <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Armonización con Péndulo</a>
           </div>
         </div>
 
@@ -79,25 +74,27 @@
   <!-- Menú Mobile -->
   <div id="mobileMenu" class="sm:hidden hidden bg-white border-t border-gray-200">
     <div class="px-4 pt-2 pb-4 space-y-2 text-pink-700 font-medium">
-      <a href="#inicio" onclick="toggleMenu()" class="block py-2">Inicio</a>
+      <a href="#inicio" class="block py-2">Inicio</a>
       <div>
-        <button onclick="toggleSubmenu()" class="w-full text-left py-2 flex justify-between items-center">
+        <button id="submenuButton" class="w-full text-left py-2 flex justify-between items-center">
           <span>Servicios</span>
           <span id="arrow" class="transform transition-transform">▼</span>
         </button>
         <div id="submenu" class="hidden pl-4">
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Limpieza Energética</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Biodescodificación</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Constelaciones</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Carta Natal</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Reiki Usui</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Reiki Karuna</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Reiki Angélico</a>
-          <a href="#servicios" onclick="toggleMenu()" class="block py-1">Registros Akáshicos</a>
+          <a href="#servicios" class="block py-1">Limpieza Energética</a>
+          <a href="#servicios" class="block py-1">Biodescodificación</a>
+          <a href="#servicios" class="block py-1">Constelaciones</a>
+          <a href="#servicios" class="block py-1">Carta Natal</a>
+          <a href="#servicios" class="block py-1">Reiki Usui</a>
+          <a href="#servicios" class="block py-1">Reiki Karuna</a>
+          <a href="#servicios" class="block py-1">Reiki Ama-Deus</a>
+          <a href="#servicios" class="block py-1">Reiki Angélico</a>
+          <a href="#servicios" class="block py-1">Registros Akáshicos</a>
+          <a href="#servicios" class="block py-1">Armonización con Péndulo</a>
         </div>
       </div>
-      <a href="#equipo" onclick="toggleMenu()" class="block py-2">Nuestro equipo</a>
-      <a href="#contacto" onclick="toggleMenu()" class="block py-2">Contacto</a>
+      <a href="#equipo" class="block py-2">Nuestro equipo</a>
+      <a href="#contacto" class="block py-2">Contacto</a>
     </div>
   </div>
 </header>
@@ -119,7 +116,7 @@
 <section id="servicios" class="py-12 bg-white">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-10 text-pink-600">Nuestros Servicios</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       
       <!-- Servicio: Limpieza Energética -->
       <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
@@ -127,7 +124,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Práctica que busca eliminar energías negativas o estancadas para restaurar el equilibrio y la armonía en personas y lugares.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Limpieza de Espacios y Personas" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -140,7 +137,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Explora la conexión entre las emociones y la salud física para identificar el origen emocional de los síntomas y facilitar la sanación.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Biodescodificación" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -153,7 +150,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Terapia que explora patrones familiares inconscientes para comprender y resolver conflictos actuales vinculados a dinámicas del pasado.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Constelaciones Familiares" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -166,7 +163,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Análisis de tu mapa astral de nacimiento para un profundo autoconocimiento y descubrimiento de tu propósito espiritual.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Carta Natal" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -179,7 +176,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Sistema de sanación tradicional japonés que canaliza energía universal para restaurar el equilibrio físico, mental y emocional.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Usui" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -192,11 +189,24 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Una forma avanzada de Reiki que utiliza frecuencias vibratorias más altas para sanar a un nivel celular y kármico.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Karuna" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
         <div class="long-description hidden">Reiki Karuna, que significa "acción compasiva", es un sistema de sanación que evolucionó a partir del Reiki Usui. Utiliza un conjunto de símbolos y frecuencias energéticas más potentes para abordar problemas profundos, como traumas de vidas pasadas, patrones inconscientes y sanación a nivel celular. Es una herramienta poderosa para quienes buscan una sanación más profunda y un desarrollo espiritual acelerado.</div>
+      </div>
+
+      <!-- Servicio: Reiki Ama-Deus -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
+        <h3 class="text-xl font-semibold text-pink-800">Reiki Ama-Deus (Sanación Guaraní)</h3>
+        <p class="mt-2 text-sm text-gray-600 flex-grow">Antiguo sistema de sanación guaraní que utiliza la energía del amor divino y símbolos sagrados para una curación profunda.</p>
+        <div class="flex justify-between items-center mt-4">
+          <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Ama-Deus" class="text-pink-500 hover:text-pink-700 transition-colors">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </button>
+        </div>
+        <div class="long-description hidden">El Reiki Ama-Deus es un poderoso y antiguo sistema de sanación energética que tiene sus raíces en la cultura guaraní de la selva amazónica. 'Ama-Deus' significa 'Amor de Dios'. Esta técnica utiliza la energía del amor divino, canalizada a través del corazón, y una serie de símbolos sagrados para tratar problemas a nivel físico, emocional y espiritual. Es especialmente efectivo para la sanación de traumas, la purificación del corazón y la conexión con la sabiduría de la naturaleza y el propio ser superior.</div>
       </div>
 
       <!-- Servicio: Reiki Angélico -->
@@ -205,7 +215,7 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Conecta con la vibración pura de los ángeles para una sanación profunda del alma, guiada por la sabiduría y el amor divinos.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Angélico" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -218,56 +228,55 @@
         <p class="mt-2 text-sm text-gray-600 flex-grow">Accede a la memoria universal del alma para obtener guía, sanación y comprensión sobre tu camino de vida y tus patrones actuales.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button onclick="openModal(this)" title="Ver más información" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Registros Akáshicos" class="text-pink-500 hover:text-pink-700 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
         <div class="long-description hidden">Los Registros Akáshicos son como una inmensa biblioteca etérica que contiene la información de todas las almas y sus viajes a lo largo del tiempo. Acceder a tus registros personales te permite obtener una perspectiva más elevada sobre tu vida, haciendo preguntas sobre relaciones, propósito de vida o bloqueos. La información recibida ofrece guía y sanación para empoderarte en tu presente y ayudarte a tomar decisiones más alineadas con tu ser superior. Es una herramienta poderosa para el autoconocimiento y la evolución espiritual.</div>
       </div>
+
+      <!-- Servicio: Armonización con Péndulo -->
+      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
+        <h3 class="text-xl font-semibold text-pink-800">Armonización con Péndulo</h3>
+        <p class="mt-2 text-sm text-gray-600 flex-grow">Técnica que utiliza el péndulo para detectar y equilibrar bloqueos energéticos, promoviendo la sanación y el bienestar integral.</p>
+        <div class="flex justify-between items-center mt-4">
+          <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
+          <button data-action="open-modal" aria-label="Ver más información sobre Armonización con Péndulo" class="text-pink-500 hover:text-pink-700 transition-colors">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </button>
+        </div>
+        <div class="long-description hidden">La armonización con péndulo es una terapia vibracional que emplea un péndulo como herramienta para medir, diagnosticar y corregir desequilibrios en el campo energético de una persona. A través de sus movimientos, el péndulo revela bloqueos, fugas de energía o zonas de congestión. El terapeuta utiliza esta información para aplicar correcciones energéticas, limpiar el aura y equilibrar los chakras, restaurando el flujo natural de la energía vital. Es una técnica suave y precisa que promueve la claridad mental, el alivio del estrés y una profunda sensación de paz interior.</div>
+      </div>
     </div>
   </section>
 
-  <section id="equipo" class="py-16 bg-rose-50">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center text-pink-600 mb-10">Nuestro Equipo</h2>
-
-      <div class="relative overflow-hidden">
-        <div id="slider" class="flex transition-transform duration-500 ease-in-out w-full">
-          <div class="min-w-full px-4">
-            <div class="bg-white p-6 rounded-xl shadow text-center">
-              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
-              <h3 class="text-xl font-semibold text-pink-700">María</h3>
-              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
-            </div>
-          </div>
-           <div class="min-w-full px-4">
-            <div class="bg-white p-6 rounded-xl shadow text-center">
-              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
-              <h3 class="text-xl font-semibold text-pink-700">María</h3>
-              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
-            </div>
-          </div>
-           <div class="min-w-full px-4">
-            <div class="bg-white p-6 rounded-xl shadow text-center">
-              <img src="img/profesional1.jpg" alt="Profesional 1" class="w-32 h-32 mx-auto rounded-full mb-4 object-cover" />
-              <h3 class="text-xl font-semibold text-pink-700">María</h3>
-              <p class="text-sm text-gray-600">Especialista en Reiki y limpieza energética.</p>
-            </div>
-          </div>
-          
-        </div>
-
-        <button onclick="moverSlide(-1)" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-pink-300 hover:bg-pink-500 text-white px-3 py-1 rounded-l">←</button>
-        <button onclick="moverSlide(1)" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-pink-300 hover:bg-pink-500 text-white px-3 py-1 rounded-r">→</button>
+  <!-- Sección de Slider Futurista -->
+  <section id="futuristic-slider" class="py-12 bg-rose-100 overflow-hidden relative">
+    <div class="container mx-auto text-center mb-8">
+      <h2 class="text-3xl font-bold text-pink-500">Galería de Inspiración</h2>
+      <p class="mt-4 text-lg text-gray-700">Sumérgete en la armonía y la belleza de Prana Bhakti.</p>
+    </div>
+    <div id="image-carousel" class="relative w-full max-w-4xl mx-auto h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl">
+      <!-- Slides -->
+      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105">
+        <img src="https://picsum.photos/1200/800?random=1" alt="Imagen de inspiración 1" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105">
+        <img src="https://picsum.photos/1200/800?random=2" alt="Imagen de inspiración 2" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105">
+        <img src="https://picsum.photos/1200/800?random=3" alt="Imagen de inspiración 3" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105">
+        <img src="https://picsum.photos/1200/800?random=4" alt="Imagen de inspiración 4" class="w-full h-full object-cover">
       </div>
     </div>
   </section>
 
   <section id="contacto" class="py-12 bg-white">
     <div class="container mx-auto max-w-xl">
-      <h2 class="text-3xl font-bold text-center mb-6 text-pink-600">Contacto</h2>
-      <!-- IMPORTANTE: Reemplaza "REEMPLAZA_CON_TU_ID" con el ID de tu formulario de Formspree -->
-      <form id="formulario" action="https://formspree.io/f/REEMPLAZA_CON_TU_ID" method="POST" class="space-y-4">
+      <h2 class="text-3xl font-bold text-center mb-6 text-pink-600">Contáctanos</h2>
+      <form id="formulario" action="https://formspree.io/f/xzzvlznr" method="POST" class="space-y-4">
         <input type="text" name="nombre" placeholder="Nombre completo" class="w-full p-3 rounded border" required />
         <input type="email" name="email" placeholder="Correo electrónico" class="w-full p-3 rounded border" required />
         <input type="tel" name="telefono" placeholder="Teléfono" class="w-full p-3 rounded border" required />
@@ -280,24 +289,17 @@
   <footer class="bg-pink-200 text-center py-8 mt-12">
     <div class="container mx-auto">
       <div class="flex justify-center items-center space-x-6 mb-4">
-        <!-- WhatsApp -->
         <a href="https://wa.me/5492324611769" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors" title="WhatsApp">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.849 6.069l-1.254 4.587 4.68-1.234zm9.34-9.465c-.078-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         </a>
-        <!-- Instagram -->
         <a href="https://www.instagram.com/pranabhaktioficial/" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors" title="Instagram">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
         </a>
-        <!-- Facebook -->
-        <a href="#" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors" title="Facebook">
-          <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-        </a>
-        <!-- Email -->
         <a href="mailto:Pranabhaktioficial@gmail.com" class="text-gray-600 hover:text-pink-600 transition-colors" title="Email">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
         </a>
       </div>
-      <p class="text-gray-800">© 2025 Prana Bhakti - Todos los derechos reservados</p>
+      <p class="text-gray-800">© 2024 Prana Bhakti - Todos los derechos reservados</p>
       <p class="text-gray-700">Contacto: <a href="https://wa.me/5492324611769" target="_blank" class="text-pink-600 hover:underline">2324 61-1769</a></p>
     </div>
   </footer>
@@ -305,7 +307,7 @@
   <!-- Modal para Servicios -->
   <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4 transition-opacity duration-300">
     <div class="bg-white rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
-      <button onclick="closeModal()" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">
+      <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
       <h3 id="modalTitle" class="text-2xl font-bold text-pink-700 mb-4"></h3>
@@ -313,58 +315,6 @@
     </div>
   </div>
 
-  <script>
-    // Modal para Servicios
-    function openModal(button) {
-      const card = button.closest('.flex.flex-col');
-      const title = card.querySelector('h3').innerText;
-      const description = card.querySelector('.long-description').innerHTML;
-      document.getElementById('modalTitle').innerText = title;
-      document.getElementById('modalDescription').innerHTML = description;
-      document.getElementById('serviceModal').classList.remove('hidden');
-      document.getElementById('serviceModal').classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Evita el scroll del fondo
-    }
-
-    function closeModal() {
-      document.getElementById('serviceModal').classList.add('hidden');
-      document.getElementById('serviceModal').classList.remove('flex');
-      document.body.style.overflow = ''; // Restaura el scroll del fondo
-    }
-
-    // Slider 
-    let index = 0;
-    function moverSlide(dir) {
-      const slider = document.getElementById('slider');
-      const total = slider.children.length;
-      index = Math.max(0, Math.min(index + dir, total - 1));
-      slider.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    // Menu responsive
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('hidden');
-    }
-
-    function toggleSubmenu() {
-      const submenu = document.getElementById('submenu');
-      const arrow = document.getElementById('arrow');
-      submenu.classList.toggle('hidden');
-      arrow.classList.toggle('rotate-180');
-    }
-
-    // Cerrar modal con tecla Escape
-    window.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && !document.getElementById('serviceModal').classList.contains('hidden')) {
-        closeModal();
-      }
-    });
-
-    // Cerrar modal al hacer clic fuera
-    document.getElementById('serviceModal').addEventListener('click', function(e) {
-        if (e.target === this) { closeModal(); }
-    });
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
