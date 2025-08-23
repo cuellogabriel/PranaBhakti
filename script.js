@@ -20,7 +20,7 @@ if (submenuButton && submenu && arrow) {
 
 
 const serviceModal = document.getElementById('serviceModal');
-const modalContent = serviceModal ? serviceModal.querySelector('.bg-white.rounded-2xl') : null; // Select the inner content div
+const modalContent = serviceModal ? serviceModal.querySelector('.transform.transition-transform') : null;
 const modalTitle = document.getElementById('modalTitle');
 const modalDescription = document.getElementById('modalDescription');
 const modalCloseButton = serviceModal ? serviceModal.querySelector('button[aria-label="Cerrar modal"]') : null;
@@ -29,7 +29,7 @@ const openModalButtons = document.querySelectorAll('[data-action="open-modal"]')
 if (serviceModal && modalContent && modalTitle && modalDescription && modalCloseButton && openModalButtons.length > 0) {
     openModalButtons.forEach(button => {
         button.addEventListener('click', () => {
-            const serviceCard = button.closest('.flex.flex-col'); // Find the parent service card
+            const serviceCard = button.closest('.flex.flex-col'); 
             if (serviceCard) {
                 const title = serviceCard.querySelector('h3').textContent;
                 const description = serviceCard.querySelector('.long-description').innerHTML;
@@ -67,38 +67,51 @@ if (serviceModal && modalContent && modalTitle && modalDescription && modalClose
     });
 }
 
+// --- Futurista ---
+const carouselContainer = document.getElementById('image-carousel-container');
+if (carouselContainer) {
+    const carousel = document.getElementById('image-carousel');
+    const slides = Array.from(carousel.children);
+    const numSlides = slides.length;
+    let currentAngle = 0;
+    let radius; 
+    function setupAndPositionCarousel() {
+        if (numSlides === 0) return;
+        const slideWidth = slides[0].offsetWidth;
+        const anglePerSlide = 360 / numSlides;
+        radius = Math.round((slideWidth / 2) / Math.tan(Math.PI / numSlides));
+        if (window.innerWidth < 768) {
+            radius = radius * 1.5;
+        } else {
+            radius = radius * 1.2; 
+        }
 
-const imageCarousel = document.getElementById('image-carousel');
-if (imageCarousel) {
-    const slides = imageCarousel.querySelectorAll('.absolute.inset-0');
-    let currentSlide = 0;
-
-    const showSlide = (index) => {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.remove('opacity-0', 'scale-105');
-                slide.classList.add('opacity-100', 'scale-100');
-            } else {
-                slide.classList.remove('opacity-100', 'scale-100');
-                slide.classList.add('opacity-0', 'scale-105');
-            }
+        slides.forEach((slide, index) => {
+            const angle = anglePerSlide * index;
+            slide.style.transform = `rotateY(${angle}deg) translateZ(${radius}px)`;
         });
-    };
+        rotateCarousel(); 
+    }
 
-    const nextSlide = () => {
-        currentSlide = (currentSlide + 1) % slides.length;
-        showSlide(currentSlide);
-    };
-    showSlide(currentSlide);
-    setInterval(nextSlide, 5000); 
+    function rotateCarousel() {
+        carousel.style.transform = `translateZ(-${radius}px) rotateY(${currentAngle}deg)`;
+    }
+
+    function advanceSlide() {
+        const anglePerSlide = 360 / numSlides;
+        currentAngle -= anglePerSlide; 
+        rotateCarousel();
+    }
+    window.addEventListener('load', () => { setupAndPositionCarousel(); setInterval(advanceSlide, 4000); });
+    window.addEventListener('resize', setupAndPositionCarousel);
 }
 
 // --- Lógica para la Esfera 3D ---
 const sphere = document.querySelector('.sphere');
 if (sphere) {
-    const panels = 6; 
-    const radius = 140; 
-    const imageUrl = 'pictures/logo-removebg-preview.png'; 
+    const panels = 5; 
+    const radius = 160; 
+    const imageUrl = 'pictures/logo-removebg-preview.png';
 
     for (let i = 0; i < panels; i++) {
         const panel = document.createElement('div');

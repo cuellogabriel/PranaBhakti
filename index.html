@@ -18,13 +18,57 @@
 <style>
    html {
       scroll-behavior: smooth;
-  }
+   }
    .invalid {
       border-color: red !important;
   }
    .valid {
       border-color: green !important;
   }
+
+   /* --- Paleta de Colores y Clases Personalizadas --- */
+   :root {
+     /* marca */
+     --color-brand-principal: #db2777; 
+     --color-brand-secundario: #be185d; 
+     --color-brand-claro: #f9a8d4;     
+     --color-brand-hover: #ec4899;     
+     --color-brand-fondo-claro: #fff1f2; 
+
+     /* fondo */
+     --color-bg-header-footer: rgba(255, 255, 255, 0.9);
+     --color-bg-card: rgba(0, 0, 0, 0.2);
+     --color-bg-input: rgba(255, 255, 255, 0.1);
+
+     /*  texto */
+     --color-text-oscuro: #1f2937; 
+     --color-text-claro: #e5e7eb;  
+     --color-text-placeholder: #d1d5db; 
+
+     /* Otros */
+     --color-sombra-hover: rgba(236, 72, 153, 0.2); 
+     --color-borde-input: #9ca3af; 
+   }
+
+   .btn-principal-ejemplo {
+     background-color: var(--color-brand-hover);
+     color: white;
+   }
+   .btn-principal-ejemplo:hover {
+     background-color: var(--color-brand-principal);
+   }
+
+   .card-servicio-ejemplo {
+     background-color: var(--color-bg-card);
+     backdrop-filter: blur(1rem); /
+   }
+   .card-servicio-ejemplo:hover {
+     box-shadow: 0 20px 25px -5px var(--color-sombra-hover), 0 10px 10px -5px var(--color-sombra-hover);
+   }
+   .card-servicio-ejemplo .titulo-ejemplo {
+     color: var(--color-brand-claro);
+   }
+
    @keyframes marquee {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -51,17 +95,53 @@
       from { transform: rotateY(0deg) rotateX(5deg); }
       to { transform: rotateY(360deg) rotateX(5deg); }
    }
+  
+   #image-carousel-container {
+      perspective: 1200px; 
+   }
+   #image-carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d; 
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+   }
+   .carousel-slide {
+      position: absolute; 
+      left: 0; right: 0; top: 10%; 
+      margin: auto;
+      width: 60vw;   
+      max-width: 300px; 
+      height: 40vw;  
+      max-height: 200px;
+      border-radius: 1rem;
+      background-size: cover;
+      background-position: center;
+      -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, #0004);
+   }
+
+   #bg-video {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     z-index: -100;
+   }
 </style>
 </head>
-<body class="bg-rose-50 text-gray-800 font-medium leading-relaxed">
-
-<header class="bg-white shadow-md sticky top-0 z-50" id="inicio">
+<body class="text-gray-800 font-medium leading-relaxed">
+<video autoplay muted loop playsinline id="bg-video">
+    <source src="pictures/fondo1.mp4" type="video/mp4">
+</video>
+<header class="bg-white/90 backdrop-blur-sm shadow-md sticky top-0 z-50" id="inicio">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <a href="#inicio" class="flex items-center space-x-3">
         <img src="pictures/logo-removebg-preview.png" alt="Logo Prana Bhakti" class="h-14 w-14 rounded-full object-cover mr-2 bg-rose-50 p-1"/>
         <div>
-          <span class="text-pink-600 font-bold text-3xl block">Prana Bhakti</span>
+          <span class="text-pink-600 font-bold text-3xl block italic">Prana Bhakti</span>
           <p class="text-xs text-pink-600 italic">
           Espiritualidad
           </p>
@@ -82,7 +162,7 @@
         <a href="#inicio" class="hover:text-pink-500">Inicio</a>
         <div class="relative group">
           <a href="#servicios" class="hover:text-pink-500 cursor-pointer">Servicios</a>
-          <div class="absolute hidden group-hover:block bg-white border rounded-lg shadow-md mt-2 z-50 w-56">
+          <div class="absolute hidden group-hover:block bg-white/90 backdrop-blur-sm border rounded-lg shadow-md mt-2 z-50 w-56">
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Limpieza Energética</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Biodescodificación</a>
             <a href="#servicios" class="block px-4 py-2 hover:bg-pink-100">Constelaciones Familiares</a>
@@ -103,7 +183,7 @@
   </div>
 
   <!-- Menú Mobile -->
-  <div id="mobileMenu" class="sm:hidden hidden bg-white border-t border-gray-200">
+  <div id="mobileMenu" class="sm:hidden hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
     <div class="px-4 pt-2 pb-4 space-y-2 text-pink-700 font-medium">
       <input type="search" class="w-full bg-rose-50 px-4 py-2 rounded-full focus:outline-none focus:shadow-outline mb-2" placeholder="Buscar..."> <a href="#inicio" class="block py-2">Inicio</a>
       <div>
@@ -131,13 +211,13 @@
 </header>
 
 <!-- Banner Deslizante -->
-<div class="w-full bg-pink-600 text-white py-3 overflow-hidden mt-2">
+<div class="w-full text-pink-600 py-3 overflow-hidden mt-2">
     <div class="flex animate-[marquee_30s_linear_infinite]">
-        <p class="flex-shrink-0 flex items-center mx-8 text-base md:text-lg whitespace-nowrap">
+        <p class="flex-shrink-0 flex items-center mx-8 text-base md:text-lg whitespace-nowrap drop-shadow-md">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
             Lunes a Viernes: 08:00Hs - 19:00Hs. Reserva Tu Turno Con Tiempo y Disfruta De La Mejor Experiencia.
         </p>
-        <p class="flex-shrink-0 flex items-center mx-8 text-base md:text-lg whitespace-nowrap">
+        <p class="flex-shrink-0 flex items-center mx-8 text-base md:text-lg whitespace-nowrap drop-shadow-md">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" /></svg>
             Lunes a Viernes: 08:00Hs - 19:00Hs. Reserva Tu Turno Con Tiempo y Disfruta De La Mejor Experiencia.
         </p>
@@ -145,30 +225,29 @@
 </div>
 
 <!-- SLIDER ESFERA -->
-<section id="sphere-slider" class="pt-12 pb-20 bg-rose-100 overflow-hidden relative">
+<section id="sphere-slider" class="pt-12 pb-20 overflow-hidden relative">
   <div class="container mx-auto text-center mb-8">
-    <h2 class="text-3xl font-bold text-pink-500">Universo Prana Bhakti</h2>
-    <p class="mt-4 text-lg text-gray-700">Explora nuestra energía en movimiento.</p>
+    <h2 class="text-3xl font-bold text-pink-600 drop-shadow-lg">Universo Prana Bhakti</h2>
+    <p class="mt-4 text-lg text-pink-600 drop-shadow-md">Explora nuestra energía en movimiento.</p>
   </div>
-  <!-- Contenedor para la esfera 3D. Puedes ajustar width, height y perspective. -->
   <div class="scene" style="width: 300px; height: 300px; margin: 40px auto; perspective: 1000px;">
     <div class="sphere">
     </div>
   </div>
 </section>
 
-<section id="servicios" class="py-12 bg-white">
+<section id="servicios" class="py-12">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-10 text-pink-600">Nuestros Servicios</h2>
+    <h2 class="text-3xl font-bold text-center mb-10 text-pink-600 drop-shadow-lg">Nuestros Servicios</h2>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       
       <!-- Servicio: Limpieza Energética -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Limpieza de Espacios y Personas</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Práctica que busca eliminar energías negativas o estancadas para restaurar el equilibrio y la armonía en personas y lugares.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Limpieza de Espacios y Personas</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Práctica que busca eliminar energías negativas o estancadas para restaurar el equilibrio y la armonía en personas y lugares.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Limpieza de Espacios y Personas" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Limpieza de Espacios y Personas" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -176,12 +255,12 @@
       </div>
 
       <!-- Servicio: Biodescodificación -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Biodescodificación</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Explora la conexión entre las emociones y la salud física para identificar el origen emocional de los síntomas y facilitar la sanación.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Biodescodificación</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Explora la conexión entre las emociones y la salud física para identificar el origen emocional de los síntomas y facilitar la sanación.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Biodescodificación" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Biodescodificación" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -189,12 +268,12 @@
       </div>
 
       <!-- Servicio: Constelaciones Familiares -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Constelaciones Familiares</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Terapia que explora patrones familiares inconscientes para comprender y resolver conflictos actuales vinculados a dinámicas del pasado.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Constelaciones Familiares</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Terapia que explora patrones familiares inconscientes para comprender y resolver conflictos actuales vinculados a dinámicas del pasado.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Constelaciones Familiares" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Constelaciones Familiares" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -202,12 +281,12 @@
       </div>
 
             <!-- Servicio: Registros Akáshicos -->
-            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-              <h3 class="text-xl font-semibold text-pink-800">Registros Akáshicos</h3>
-              <p class="mt-2 text-sm text-gray-600 flex-grow">Accede a la memoria universal del alma para obtener guía, sanación y comprensión sobre tu camino de vida y tus patrones actuales.</p>
+            <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+              <h3 class="text-xl font-semibold text-pink-300">Registros Akáshicos</h3>
+              <p class="mt-2 text-sm text-gray-200 flex-grow">Accede a la memoria universal del alma para obtener guía, sanación y comprensión sobre tu camino de vida y tus patrones actuales.</p>
               <div class="flex justify-between items-center mt-4">
                 <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-                <button data-action="open-modal" aria-label="Ver más información sobre Registros Akáshicos" class="text-pink-500 hover:text-pink-700 transition-colors">
+                <button data-action="open-modal" aria-label="Ver más información sobre Registros Akáshicos" class="text-pink-300 hover:text-pink-500 transition-colors">
                   <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
               </div>
@@ -215,12 +294,12 @@
             </div>
       
             <!-- Servicio: Armonización con Péndulo -->
-            <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-              <h3 class="text-xl font-semibold text-pink-800">Armonización con Péndulo</h3>
-              <p class="mt-2 text-sm text-gray-600 flex-grow">Técnica que utiliza el péndulo para detectar y equilibrar bloqueos energéticos, promoviendo la sanación y el bienestar integral.</p>
+            <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+              <h3 class="text-xl font-semibold text-pink-300">Armonización con Péndulo</h3>
+              <p class="mt-2 text-sm text-gray-200 flex-grow">Técnica que utiliza el péndulo para detectar y equilibrar bloqueos energéticos, promoviendo la sanación y el bienestar integral.</p>
               <div class="flex justify-between items-center mt-4">
                 <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-                <button data-action="open-modal" aria-label="Ver más información sobre Armonización con Péndulo" class="text-pink-500 hover:text-pink-700 transition-colors">
+                <button data-action="open-modal" aria-label="Ver más información sobre Armonización con Péndulo" class="text-pink-300 hover:text-pink-500 transition-colors">
                   <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                 </button>
               </div>
@@ -228,17 +307,13 @@
             </div>
       
       
-
-
-
-
       <!-- Servicio: Reiki Usui -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Reiki Usui</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Sistema de sanación tradicional japonés que canaliza energía universal para restaurar el equilibrio físico, mental y emocional.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Reiki Usui</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Sistema de sanación tradicional japonés que canaliza energía universal para restaurar el equilibrio físico, mental y emocional.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Usui" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Usui" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -247,12 +322,12 @@
 
 
       <!-- Servicio: Reiki Karuna -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Reiki Karuna</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Una forma avanzada de Reiki que utiliza frecuencias vibratorias más altas para sanar a un nivel celular y kármico.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Reiki Karuna</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Una forma avanzada de Reiki que utiliza frecuencias vibratorias más altas para sanar a un nivel celular y kármico.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Karuna" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Karuna" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -260,12 +335,12 @@
       </div>
 
       <!-- Servicio: Reiki Ama-Deus -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Reiki Ama-Deus </h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Antiguo sistema de sanación guaraní que utiliza la energía del amor divino y símbolos sagrados para una curación profunda.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Reiki Ama-Deus </h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Antiguo sistema de sanación guaraní que utiliza la energía del amor divino y símbolos sagrados para una curación profunda.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Ama-Deus" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Ama-Deus" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -273,12 +348,12 @@
       </div>
 
       <!-- Servicio: Reiki Angélico -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Reiki Angélico</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Conecta con la vibración pura de los ángeles para una sanación profunda del alma, guiada por la sabiduría y el amor divinos.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Reiki Angélico</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Conecta con la vibración pura de los ángeles para una sanación profunda del alma, guiada por la sabiduría y el amor divinos.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Angélico" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Reiki Angélico" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -286,12 +361,12 @@
       </div>
 
       <!-- Servicio: Carta Natal -->
-      <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition flex flex-col">
-        <h3 class="text-xl font-semibold text-pink-800">Carta Natal</h3>
-        <p class="mt-2 text-sm text-gray-600 flex-grow">Análisis de tu mapa astral de nacimiento para un profundo autoconocimiento y descubrimiento de tu propósito espiritual.</p>
+      <div class="bg-rose-50/10 backdrop-blur-sm rounded-2xl p-6 transition flex flex-col border border-white/20">
+        <h3 class="text-xl font-semibold text-pink-300">Carta Natal</h3>
+        <p class="mt-2 text-sm text-gray-200 flex-grow">Análisis de tu mapa astral de nacimiento para un profundo autoconocimiento y descubrimiento de tu propósito espiritual.</p>
         <div class="flex justify-between items-center mt-4">
           <a href="https://wa.me/5492324611769" target="_blank" class="text-center bg-pink-500 text-white py-2 px-4 rounded-lg hover:bg-pink-600 transition-colors">Consultar</a>
-          <button data-action="open-modal" aria-label="Ver más información sobre Carta Natal" class="text-pink-500 hover:text-pink-700 transition-colors">
+          <button data-action="open-modal" aria-label="Ver más información sobre Carta Natal" class="text-pink-300 hover:text-pink-500 transition-colors">
             <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </button>
         </div>
@@ -302,95 +377,97 @@
   </section>
 
   <!-- IMAGENES DE SLIDER -->
-  <section id="futuristic-slider" class="py-12 bg-rose-100 overflow-hidden relative">
+  <section id="futuristic-slider" class="py-12 relative overflow-hidden">
     <div class="container mx-auto text-center mb-8">
-      <h2 class="text-3xl font-bold text-pink-500">Galería de Inspiración</h2>
-      <p class="mt-4 text-lg text-gray-700">Sumérgete en la armonía y la belleza de Prana Bhakti.</p>
+      <h2 class="text-3xl font-bold text-pink-600 drop-shadow-lg">Galería de Inspiración</h2>
+      <p class="mt-4 text-lg text-pink-600 drop-shadow-md">Sumérgete en la armonía y la belleza de Prana Bhakti.</p>
     </div>
-    <div id="image-carousel" class="relative w-full max-w-4xl mx-auto h-[300px] md:h-[400px] lg:h-[450px] overflow-hidden rounded-xl shadow-2xl">
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/1.jpg" alt="Imagen de inspiración 1" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/2.jpg" alt="Imagen de inspiración 2" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/3.jpeg" alt="Imagen de inspiración 3" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/4.jpg" alt="Imagen de inspiración 4" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/5.webp" alt="Imagen de inspiración 5" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/6.jpg" alt="Imagen de inspiración 6" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/7.webp" alt="Imagen de inspiración 7" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/8.webp" alt="Imagen de inspiración 8" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/9.jpg" alt="Imagen de inspiración 9" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/11.avif" alt="Imagen de inspiración 10" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/12.jpg" alt="Imagen de inspiración 11" class="w-full h-full object-cover"></div>
-      <div class="absolute inset-0 transition-all duration-1000 ease-in-out opacity-0 transform scale-105"><img src="pictures/sanacion-holistica1.avif" alt="Imagen de inspiración 12" class="w-full h-full object-cover"></div>
+    <div id="image-carousel-container" class="relative w-full h-[300px] md:h-[400px] lg:h-[450px]">
+      <div id="image-carousel" class="w-full h-full">
+        <div class="carousel-slide" style="background-image: url('pictures/1.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/2.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/3.jpeg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/4.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/5.webp');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/6.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/7.webp');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/8.webp');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/9.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/11.avif');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/12.jpg');"></div>
+        <div class="carousel-slide" style="background-image: url('pictures/sanacion-holistica1.avif');"></div>
+      </div>
     </div>
   </section>
 
-  <section id="contacto" class="py-12 bg-white">
+  <section id="contacto" class="py-12">
     <div class="container mx-auto max-w-xl">
-      <h2 class="text-3xl font-bold text-center mb-6 text-pink-600">Contáctanos</h2>
-      <form id="formulario" action="https://formspree.io/f/xzzvlznr" method="POST" class="space-y-4">
-        <input type="text" name="nombre" placeholder="Nombre completo" class="w-full p-3 rounded border" required />
-        <input type="email" name="email" placeholder="Correo electrónico" class="w-full p-3 rounded border" required />
-        <input type="tel" name="telefono" placeholder="Teléfono" class="w-full p-3 rounded border" required />
-        <textarea name="mensaje" placeholder="Mensaje" rows="4" class="w-full p-3 rounded border" required></textarea>
+      <h2 class="text-3xl font-bold text-center mb-6 text-pink-600 drop-shadow-lg">Contáctanos</h2>
+      <form id="formulario" action="https://formspree.io/f/xzzvlznr" method="POST" class="bg-rose-50/10 backdrop-blur-sm space-y-4 p-8 rounded-2xl border border-white/20">
+        <input type="text" name="nombre" placeholder="Nombre completo" class="w-full p-3 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required />
+        <input type="email" name="email" placeholder="Correo electrónico" class="w-full p-3 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required />
+        <input type="tel" name="telefono" placeholder="Teléfono" class="w-full p-3 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required />
+        <textarea name="mensaje" placeholder="Mensaje" rows="4" class="w-full p-3 rounded border border-gray-400 bg-transparent text-white placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400" required></textarea>
         <button type="submit" class="w-full bg-pink-500 text-white py-3 rounded hover:bg-pink-600">Enviar mensaje</button>
       </form>
     </div>
   </section>
 
-  <footer class="bg-pink-200 text-center py-8 mt-12">
+  <footer class="bg-white/90 backdrop-blur-sm shadow-md text-center py-8 mt-12">
     <div class="container mx-auto">
       <div class="flex justify-center items-center space-x-6 mb-4">
-        <a href="https://wa.me/5492324611769" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors" title="WhatsApp">
+        <a href="https://wa.me/5492324611769" target="_blank" class="text-pink-700 hover:text-pink-500 transition-colors" title="WhatsApp">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.886-.001 2.269.655 4.357 1.849 6.069l-1.254 4.587 4.68-1.234zm9.34-9.465c-.078-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01s-.521.074-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
         </a>
-        <a href="https://www.instagram.com/pranabhaktioficial/" target="_blank" class="text-gray-600 hover:text-pink-600 transition-colors" title="Instagram">
+        <a href="https://www.instagram.com/pranabhaktioficial/" target="_blank" class="text-pink-700 hover:text-pink-500 transition-colors" title="Instagram">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
         </a>
-        <a href="mailto:Pranabhaktioficial@gmail.com" class="text-gray-600 hover:text-pink-600 transition-colors" title="Email">
+        <a href="mailto:Pranabhaktioficial@gmail.com" class="text-pink-700 hover:text-pink-500 transition-colors" title="Email">
           <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/></svg>
         </a>
       </div>
       <p class="text-gray-800">
-          <a href="#" id="copyrightLink">© 2024 Prana Bhakti - Todos los derechos reservados</a> | <a href="#" id="privacyPolicyLink">Políticas de Privacidad</a>
+          <a href="#" id="copyrightLink" class="hover:text-pink-500">© 2024 Prana Bhakti - Todos los derechos reservados</a> | <a href="#" id="privacyPolicyLink" class="hover:text-pink-500">Políticas de Privacidad</a>
       </p>
     </div>
   </footer>
 
   <!-- MODAL SERVICIOS -->
   <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4 transition-opacity duration-300">
-    <div class="bg-white rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
-      <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800">
+    <div class="bg-rose-50/90 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
+      <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-pink-700 hover:text-pink-500">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
       </button>
-      <h3 id="modalTitle" class="text-2xl font-bold text-pink-700 mb-4"></h3>
-      <div id="modalDescription" class="text-gray-700 leading-relaxed max-h-[70vh] overflow-y-auto pr-2"></div>
+      <h3 id="modalTitle" class="text-2xl font-bold text-pink-600 drop-shadow-lg mb-4"></h3>
+      <div id="modalDescription" class="text-gray-800 drop-shadow-md leading-relaxed max-h-[70vh] overflow-y-auto pr-2"></div>
     </div>
   </div>
 
   <!-- Copyright Modal -->
   <div id="copyrightModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4 transition-opacity duration-300">
-      <div class="bg-white rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
-          <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800" onclick="closeCopyrightModal()">
+      <div class="bg-rose-50/90 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
+          <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-pink-700 hover:text-pink-500" onclick="closeCopyrightModal()">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
-          <h3 class="text-2xl font-bold text-pink-700 mb-4">Derechos de Autor</h3>
-          <div class="text-gray-700 leading-relaxed max-h-[70vh] overflow-y-auto pr-2">
+          <h3 class="text-2xl font-bold text-pink-600 drop-shadow-lg mb-4">Derechos de Autor</h3>
+          <div class="text-gray-800 drop-shadow-md leading-relaxed max-h-[70vh] overflow-y-auto pr-2">
               <p><strong>© 2024 Prana Bhakti - Todos los derechos reservados</strong></p>
               <p>Este sitio web y su contenido están protegidos por las leyes de derecho de autor de Argentina y tratados internacionales.</p>
               <p>Ley 11.723 de Propiedad Intelectual protege las obras literarias, artísticas y científicas, incluyendo el código fuente, diseño y contenido de este sitio.</p>
               <p>El uso no autorizado, la reproducción, distribución o modificación de este contenido está estrictamente prohibido y puede resultar en acciones legales.</p>
-              <p>Para cualquier consulta sobre el uso de este contenido, por favor contáctenos a <a href="mailto:Pranabhaktioficial@gmail.com">Pranabhaktioficial@gmail.com</a>.</p>
+              <p>Para cualquier consulta sobre el uso de este contenido, por favor contáctenos a <a href="mailto:Pranabhaktioficial@gmail.com" class="text-pink-600 hover:text-pink-500">Pranabhaktioficial@gmail.com</a>.</p>
           </div>
       </div>
   </div>
 
   <!-- Privacy Policy Modal -->
   <div id="privacyPolicyModal" class="fixed inset-0 bg-black bg-opacity-60 hidden items-center justify-center z-50 p-4 transition-opacity duration-300">
-      <div class="bg-white rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
-          <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-gray-500 hover:text-gray-800" onclick="closePrivacyPolicyModal()">
+      <div class="bg-rose-50/90 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-6 max-w-2xl w-full relative transform transition-transform duration-300 scale-95">
+          <button aria-label="Cerrar modal" class="absolute top-3 right-3 text-pink-700 hover:text-pink-500" onclick="closePrivacyPolicyModal()">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
-          <h3 class="text-2xl font-bold text-pink-700 mb-4">Políticas de Privacidad</h3>
-          <div class="text-gray-700 leading-relaxed max-h-[70vh] overflow-y-auto pr-2">
+          <h3 class="text-2xl font-bold text-pink-600 drop-shadow-lg mb-4">Políticas de Privacidad</h3>
+          <div class="text-gray-800 drop-shadow-md leading-relaxed max-h-[70vh] overflow-y-auto pr-2">
               <p><strong>Prana Bhakti - Políticas de Privacidad</strong></p>
               <p>En Prana Bhakti, nos tomamos muy en serio la privacidad de nuestros usuarios. Esta política de privacidad describe cómo recopilamos, usamos, protegemos y compartimos la información que obtenemos de ti.</p>
               
